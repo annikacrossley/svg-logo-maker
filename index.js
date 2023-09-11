@@ -1,13 +1,28 @@
 // GIVEN a command-line application that accepts user input
-function Logo (text, textColor, shape, shapeColor) {
-    this.text = text;
-    this.textColor = textColor;
-    this.shape = shape;
-    this.shapeColor = shapeColor;
+class Logo {
+    constructor(text, textColor, shape, shapeColor) {
+        this.text = text;
+        this.textColor = textColor;
+        this.shape = shape;
+        this.shapeColor = shapeColor;
+    }
 }
 
-const starbucks = new Logo('sbx', 'white', 'circle', 'green')
+const starbucks = new Logo(
+    'sbx', 
+    'white', 
+    'circle', 
+    'green',
+
+)
+
 console.log(starbucks)
+
+// Logo.prototype.makeLogo = function() {
+//     console.log('I am a logo')
+// }
+
+
 // WHEN I am prompted for text
 // THEN I can enter up to three characters
 
