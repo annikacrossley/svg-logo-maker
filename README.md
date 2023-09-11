@@ -1,5 +1,5 @@
-## SVG Logo Maker
+# SVG Logo Maker
 
-# Description
+## Description
 
-# Video
+## Video
