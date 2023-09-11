@@ -1,4 +1,30 @@
 // GIVEN a command-line application that accepts user input
+const inquirer = require('inquirer');
+
+inquirer.prompt([
+    {
+        type: 'string',
+        name: 'text',
+        message: 'Enter text up to 3 letters: ',
+    },
+    {
+        type: 'string',
+        name: 'text color',
+        message: 'What color is the text?',
+    },
+    {
+        type: 'list',
+        name: 'shape',
+        message: 'What shape is your logo?',
+        choices: ['circle', 'triangle', 'square']
+    },
+    {
+        type: 'string',
+        name: 'shape color',
+        message: 'What color is the shape?',
+    }
+])
+
 class Logo {
     constructor(text, textColor, shape, shapeColor) {
         this.text = text;
@@ -8,39 +34,24 @@ class Logo {
     }
 }
 
+Logo.prototype.createLogo = function() {
+    //creates .svg file 
+    //300x200 pixel image that matches criteria 
+    console.log('Generated logo.svg')
+}
+
 const starbucks = new Logo(
     'sbx', 
     'white', 
     'circle', 
     'green',
-
 )
+
+starbucks.createLogo()
 
 console.log(starbucks)
 
-// Logo.prototype.makeLogo = function() {
-//     console.log('I am a logo')
-// }
 
-
-// WHEN I am prompted for text
-// THEN I can enter up to three characters
-
-// WHEN I am prompted for the text color
-// THEN I can enter a color keyword (OR a hexadecimal number)
-
-// WHEN I am prompted for a shape
-// THEN I am presented with a list of shapes to choose from: circle, triangle, and square
 
 // WHEN I am prompted for the shape's color
 // THEN I can enter a color keyword (OR a hexadecimal number)
-
-
-
-
-// WHEN I have entered input for all the prompts
-// THEN an SVG file is created named `logo.svg`
-// AND the output text "Generated logo.svg" is printed in the command line
-
-// WHEN I open the `logo.svg` file in a browser
-// THEN I am shown a 300x200 pixel image that matches the criteria I entered
