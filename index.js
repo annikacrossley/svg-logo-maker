@@ -1,7 +1,8 @@
 // GIVEN a command-line application that accepts user input
-const inquirer = require('inquirer');
+import inquirer from "inquirer"; 
+// const generateLogo = require('./utils/generateLogo');  getting an error about ES module scope. this is confusing from last week!
 
-inquirer.prompt([
+const questions = [
     {
         type: 'string',
         name: 'text',
@@ -23,35 +24,22 @@ inquirer.prompt([
         name: 'shape color',
         message: 'What color is the shape?',
     }
-])
+]
 
-class Logo {
-    constructor(text, textColor, shape, shapeColor) {
-        this.text = text;
-        this.textColor = textColor;
-        this.shape = shape;
-        this.shapeColor = shapeColor;
-    }
-}
+inquirer
+    .prompt(
+        questions
+    )
+    .then((answers) => {
+        console.log(answers)
+        createLogo('./utils/logo.svg')
+    })
+    .catch((error) => {
+    console.log(error)
+    });
 
-Logo.prototype.createLogo = function() {
+function createLogo() {
+    console.log('Generated logo.svg')
     //creates .svg file 
     //300x200 pixel image that matches criteria 
-    console.log('Generated logo.svg')
 }
-
-const starbucks = new Logo(
-    'sbx', 
-    'white', 
-    'circle', 
-    'green',
-)
-
-starbucks.createLogo()
-
-console.log(starbucks)
-
-
-
-// WHEN I am prompted for the shape's color
-// THEN I can enter a color keyword (OR a hexadecimal number)
